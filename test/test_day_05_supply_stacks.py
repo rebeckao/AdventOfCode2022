@@ -17,10 +17,30 @@ class Test(TestCase):
             "move 2 from 2 to 1",
             "move 1 from 1 to 2"
         ]
-        actual = crates_on_top(input_data)
+        actual = crates_on_top(input_data, True)
         self.assertEqual("CMZ", actual)
 
     def test_crates_on_top_actual(self):
         input_data = lines_from_file("day05.txt")
-        actual = crates_on_top(input_data)
+        actual = crates_on_top(input_data, True)
         self.assertEqual("GRTSWNJHH", actual)
+
+    def test_crates_on_top_9001_example(self):
+        input_data = [
+            "    [D]    ",
+            "[N] [C]    ",
+            "[Z] [M] [P]",
+            " 1   2   3 ",
+            "",
+            "move 1 from 2 to 1",
+            "move 3 from 1 to 3",
+            "move 2 from 2 to 1",
+            "move 1 from 1 to 2"
+        ]
+        actual = crates_on_top(input_data, False)
+        self.assertEqual("MCD", actual)
+
+    def test_crates_on_top_9001_actual(self):
+        input_data = lines_from_file("day05.txt")
+        actual = crates_on_top(input_data, False)
+        self.assertEqual("QLFQDBBHM", actual)
